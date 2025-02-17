@@ -1,4 +1,5 @@
 import math
+import os
 import random
 from qubots.base_problem import BaseProblem
 
@@ -40,9 +41,14 @@ class CurveFittingProblem(BaseProblem):
         self.nb_observations = len(self.inputs)
 
     def _load_instance_from_file(self, filename):
+        # If the filename is not absolute, make it relative to this module's directory
+        if not os.path.isabs(filename):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            filename = os.path.join(base_dir, filename)
+            
         with open(filename, "r") as f:
             tokens = f.read().split()
-        # Convert tokens to floats
+        # Convert all tokens to float
         values = [float(tok) for tok in tokens]
         nb = int(values[0])
         expected_len = 1 + nb * 2

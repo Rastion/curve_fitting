@@ -1,57 +1,57 @@
 {
-    "entry_point": "curve_fitting_problem:CurveFittingProblem",
-    "default_params": {
-      "instance_file": "instances/observations.in"
+  "entry_point": "curve_fitting_problem:CurveFittingProblem",
+  "default_params": {
+    "instance_file": "instances/observations.in"
+  },
+  "problem_type": "CurveFitting",
+  "description": "Find the optimal parameters a, b, c, d for the mapping function f(x) = a*sin(b - x) + c*x^2 + d to best fit the given set of input/output observations.",
+  "keywords": [
+    "curve fitting",
+    "regression",
+    "nonlinear optimization",
+    "sine function",
+    "quadratic"
+  ],
+  "data_format": {
+    "instance_file": {
+      "format": "The first number indicates the number of observations, followed by that many lines, each containing an input and output value separated by a space."
+    }
+  },
+  "decision_variables": {
+    "a": {
+      "type": "float",
+      "range": [-100, 100],
+      "description": "Coefficient for the sine component."
     },
-    "problem_type": "CurveFitting",
-    "description": "Find the optimal parameters a, b, c, d for the mapping function f(x) = a*sin(b - x) + c*x^2 + d to best fit the given set of input/output observations.",
-    "keywords": [
-      "curve fitting",
-      "regression",
-      "nonlinear optimization",
-      "sine function",
-      "quadratic"
-    ],
-    "data_format": {
-      "instance_file": {
-        "format": "The first number indicates the number of observations, followed by that many lines, each containing an input and output value separated by a space."
-      }
+    "b": {
+      "type": "float",
+      "range": [-100, 100],
+      "description": "Phase shift parameter in the sine function."
     },
-    "decision_variables": {
-      "a": {
-        "type": "float",
-        "range": [-100, 100],
-        "description": "Coefficient for the sine component."
-      },
-      "b": {
-        "type": "float",
-        "range": [-100, 100],
-        "description": "Phase shift parameter in the sine function."
-      },
-      "c": {
-        "type": "float",
-        "range": [-100, 100],
-        "description": "Coefficient for the quadratic term (x^2)."
-      },
-      "d": {
-        "type": "float",
-        "range": [-100, 100],
-        "description": "Constant offset."
-      }
+    "c": {
+      "type": "float",
+      "range": [-100, 100],
+      "description": "Coefficient for the quadratic term (x^2)."
     },
-    "objective": {
-      "type": "minimization",
-      "function": "Sum of squared errors (SSE) between predicted outputs and observed outputs.",
-      "description": "Minimize the sum of squared differences between f(x) and the observed output values."
-    },
-    "compatible_optimizers": [
-      "gradient_based",
-      "metaheuristic",
-      "genetic_algorithm",
-      "simulated_annealing",
-      "particle_swarm",
-      "tabu_search"
-    ],
-    "notes": "The mapping function is non-linear and may exhibit multiple local minima. Optimizers that handle continuous variables and have robust mechanisms for escaping local minima (e.g., metaheuristics) are recommended."
-  }
-  
+    "d": {
+      "type": "float",
+      "range": [-100, 100],
+      "description": "Constant offset."
+    }
+  },
+  "objective": {
+    "type": "minimization",
+    "function": "Sum of squared errors (SSE) between predicted outputs and observed outputs.",
+    "description": "Minimize the sum of squared differences between f(x) and the observed output values."
+  },
+  "solution_representation": "A list of four float numbers representing the parameters [a, b, c, d].",
+  "compatible_optimizers": [
+    "gradient_based",
+    "metaheuristic",
+    "genetic_algorithm",
+    "simulated_annealing",
+    "particle_swarm",
+    "tabu_search"
+  ],
+  "notes": "The mapping function is non-linear and may exhibit multiple local minima. Optimizers that handle continuous variables and have robust mechanisms for escaping local minima (e.g., metaheuristics) are recommended."
+}

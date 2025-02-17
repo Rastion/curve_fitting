@@ -1,0 +1,9 @@
+{
+    "entry_point": "curve_fitting_problem:CurveFittingProblem",
+    "default_params": {
+      "instance_file": "curve_fitting/instances/observations.in"
+    },
+    "problem_type": "CurveFitting",
+    "description": "Find the optimal parameters a, b, c, d for the mapping function f(x) = a*sin(b - x) + c*x^2 + d to best fit the given set of input/output observations."
+  }
+  

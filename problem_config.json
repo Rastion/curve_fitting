@@ -3,13 +3,16 @@
   "default_params": {
     "instance_file": "instances/observations.in"
   },
-  "problem_type": "CurveFitting",
+  "creator": "Rastion",
+  "type": "problem",
+  "problem_name": "Curve fitting problem",
   "description": "Find the optimal parameters a, b, c, d for the mapping function f(x) = a*sin(b - x) + c*x^2 + d to best fit the given set of input/output observations.",
+  "link_to_dataset": "https://github.com/Rastion/curve_fitting/blob/main/instances/observations.in",
   "keywords": [
     "curve fitting",
     "regression",
     "nonlinear optimization",
-    "sine function",
+    "mathematical function",
     "quadratic"
   ],
   "data_format": {
@@ -45,13 +48,8 @@
     "description": "Minimize the sum of squared differences between f(x) and the observed output values."
   },
   "solution_representation": "A list of four float numbers representing the parameters [a, b, c, d].",
-  "compatible_optimizers": [
-    "gradient_based",
-    "metaheuristic",
-    "genetic_algorithm",
-    "simulated_annealing",
-    "particle_swarm",
-    "tabu_search"
+  "formulations": [
+    ""
   ],
   "notes": "The mapping function is non-linear and may exhibit multiple local minima. Optimizers that handle continuous variables and have robust mechanisms for escaping local minima (e.g., metaheuristics) are recommended."
 }
